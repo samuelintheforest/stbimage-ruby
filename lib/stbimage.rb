@@ -33,10 +33,16 @@ module STBIMAGE
 
 =begin
 Load native dll libary 
+- lib = the name of the file
+- path = route to the file
 =end
   def self.load_lib(lib = nil, path = nil, output_error = false)
     if lib == nil && path == nil
-        lib, path = 'stbDLL.dll', Dir.pwd
+      if RUBY_PLATFORM == "x64-mswin64_140" || RUBY_PLATFORM == "x64-mingw32"
+        lib, path = 'stbDLL_x64.dll', "#{__dir__}/../dlls"
+      elsif RUBY_PLATFORM == "x86-mingw32"
+        lib, path = 'stbDLL_x86.dll', "#{__dir__}/../dlls"
+      end
     end
 
     if path
@@ -45,11 +51,6 @@ Load native dll libary
       dlload (lib)
     end
     import_symbols(output_error) unless @@glfw_import_done
-  end
-
-  def self.load_dll(lib = nil, path = nil)
-    puts "Warning STBIMAGE.load_dll is deprecated, use GLFW.load_lib instead"
-    self.load_lib(lib, path)
   end
 
   @@lib_signature = [
