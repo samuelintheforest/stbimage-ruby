@@ -31,11 +31,7 @@ module STBIMAGE
   
   @@stbi_image_import_done = false
 
-=begin
-Load native dll libary 
-- lib = the name of the file
-- path = route to the file
-=end
+  # Load native dll libary 
   def self.load_lib(lib = nil, path = nil, output_error = false)
     if lib == nil && path == nil
       if RUBY_PLATFORM == "x64-mswin64_140" || RUBY_PLATFORM == "x64-mingw32"
@@ -95,6 +91,7 @@ Load native dll libary
     'char* stbi_zlib_decode_malloc_guesssize_headerflag(const char*, int, int, int*, int)',
     'int stbi_zlib_decode_noheader_buffer(char*, int, const char*, int)', 
     'char* stbi_zlib_decode_noheader_malloc(const char*, int, int*)'
+
   ]
 
   def self.import_symbols(output_error = false)
