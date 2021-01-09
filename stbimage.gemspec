@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'stbimage'
-  s.version     = '0.5.0'
+  s.version     = '0.5.1'
   s.date        = '2021-01-09'
   s.summary     = "Bindings for the often used header stb_image.h" 
   s.description = "!Beta Version! A practical image importer/loader. It wraps stb_image.h (ver:2.26 -2020.07.13-). Supported image formats are: JPEG, PNG, TGA, BMP, PSD, GIF(not animation), HDR, PIC, PNM. Only works well with windows (win32/win64) and with linux so far, but for macOS, users have to include . Checkout the Homepage for more info (installation, usage and other information)"
