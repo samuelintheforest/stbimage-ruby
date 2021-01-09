@@ -99,15 +99,7 @@ Load native dll libary
 
   def self.import_symbols(output_error = false)
     typealias 'stbi_uc', 'unsigned char'
-    typealias 'stbi_us', 'unsigned short' 
-    
-    stbi_io_callbacks = struct[
-
-      'int  (*read) (void *user,char *data,int size)' 
-      'void     (*skip)  (void *user,int n)'                 
-      'int      (*eof)   (void *user)' 
-
-    ]
+    typealias 'stbi_us', 'unsigned short'
 
     # function
     @@lib_signature.each do |sig|
