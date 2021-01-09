@@ -5,6 +5,7 @@
 Ruby binding of stb-image.h
 
 **Works well on windows!!!**
+**Added support for Linux (32, 64, arm)**
 
 * ### Supports (so far): ###  
   <br>
@@ -41,7 +42,7 @@ Ruby binding of stb-image.h
 * Linux/macOs:\
 `gem install stbimage`
 
-*Note: In Linux/macOs you have to compile the dynamic libary (.so) yourself. Although I planned to include it in the future*
+*Note: In macOs you have to compile the dynamic libary (.so) yourself. Although I planned to include it in the future*
 
 <br>
 
@@ -56,11 +57,11 @@ You can find it under [dlls](dlls) folder
 ```ruby
 require 'stbimage'
 
-# use this to load the dll (from gem version 0.2.3 and above)! Only For windows yet
+# use this to load the dll (from gem version 0.2.3 and above)! Only For windows and linux yet
 STBIMAGE.load_lib() 
 
-# In linux and macOs you have to provide a dynamic libary (.so) 
-# STBIMAGE.load_lib('your_name.so', 'absolute_path_to_file')
+# In macOs you have to provide a dynamic libary (.so) by yourself
+# STBIMAGE.load_lib('your_name.so', 'absolute_path_to_file') 
 
 
 width = ' ' * 4
