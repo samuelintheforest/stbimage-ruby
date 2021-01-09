@@ -1,45 +1,67 @@
-# stbimage-ruby      
+# STBIMAGE     
 
 
 
-Binding of stb-image.h into the ruby programing language.
+Ruby binding of stb-image.h
+
+**Works well on windows!!!**
 
 * ### Supports (so far): ###  
-  * **stbi_load**
+  <br>
+  
+  * **stbi_load** (Default image loader)
+  * **stbi_load_16**
+  * **stbi_loadf** (For `.hdr` images)
+  * **stbi_info**
+  * **stbi_image_free**
+  * **stbi_failure_reason**
   * **stbi_set_flip_vertically_on_load**
+  * **stbi_set_flip_vertically_on_load_thread**
+  * **stbi_set_unpremultiply_on_load**
+  * **stbi_convert_iphone_png_to_rgb**
+  * **stbi_hdr_to_ldr_gamma**
+  * **stbi_hdr_to_ldr_scale**
+  * **stbi_is_16_bit**
+  * **stbi_is_hdr**
+  * **stbi_zlib_decode_buffer**
+  * **stbi_zlib_decode_malloc**
+  * **stbi_zlib_decode_malloc_guesssize**
+  * **stbi_zlib_decode_malloc_guesssize_headerflag**
+  * **stbi_zlib_decode_noheader_buffer**
+  * **stbi_zlib_decode_noheader_malloc**
+
 
 <br>
 
-# Tutorials
+# Installation
 
-1. To use this gem first install it with:
+* Windows:\
 `gem install stbimage`
-2. Require it in your project with\
-`require 'stbimage'`
-3. Load your dll dynamic libary what is in your projects root folder!!! (Download the dlls: visit my webpage.)\
-`STBIMAGE.load_lib()`
-4. Then you can use it :D
+
+* Linux/macOs:\
+`gem install stbimage`
+
+*Note: In Linux/macOs you have to compile the dynamic libary (.so) yourself. Although I planned to include it in the future*
 
 <br>
 
-# DLL libs
+# .dll libs
 
 You can find it under [dlls](dlls) folder
 
 <br>
 
-# A full Example:
+# Usage
 
 ```ruby
-require 'stb_image'
+require 'stbimage'
 
-# use this to load the dll (from gem version 0.2.3 and above)!
+# use this to load the dll (from gem version 0.2.3 and above)! Only For windows yet
 STBIMAGE.load_lib() 
 
-# Or if you want to specify another name for it, use: 
-# STBIMAGE.load_lib('your_name.dll')
+# In linux and macOs you have to provide a dynamic libary (.so) 
+# STBIMAGE.load_lib('your_name.so', 'absolute_path_to_file')
 
-# But don't forget that ruby searches your dll file in your current directory!
 
 width = ' ' * 4
 height = ' ' * 4
@@ -47,7 +69,7 @@ nr_channels = ' ' * 4
 
 data = STBIMAGE.stbi_load("blue-poly.jpg", width, height, nr_channels, 0)
 
-puts data
+puts data # You can use this data in OpenGL for instance.
 
 puts width.unpack('l')[0]
 puts height.unpack('l')[0]
@@ -58,8 +80,11 @@ puts nr_channels.unpack('l')[0]
 
 # Credit
 
-Credit to Vaiorabbit who made the bindings of opengl into ruby! This wrapper is based on his glfw wrapper. :D \
+* Credit to Vaiorabbit who made the bindings of opengl into ruby! This wrapper is based on his glfw wrapper.
 His repo: https://github.com/vaiorabbit/ruby-opengl
+
+* stb_image.h by Sean Barret. Repo: https://github.com/nothings/stb/blob/master/stb_image.h
+
 
 <br>
 
@@ -67,6 +92,7 @@ His repo: https://github.com/vaiorabbit/ruby-opengl
 
 MIT License
 
+```
 Copyright (c) 2021 Samuel Keresztes
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -86,4 +112,4 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-
+```

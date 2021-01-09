@@ -29,7 +29,7 @@ module STBIMAGE
   end
 
   
-  @@glfw_import_done = false
+  @@stbi_image_import_done = false
 
 =begin
 Load native dll libary 
@@ -42,7 +42,7 @@ Load native dll libary
         lib, path = 'stbDLL_x64.dll', "#{__dir__}/../dlls"
       elsif RUBY_PLATFORM == "x86-mingw32"
         lib, path = 'stbDLL_x86.dll', "#{__dir__}/../dlls"
-      end
+      # elsif RUBY_PLATFORM == ""
     end
 
     if path
@@ -50,31 +50,31 @@ Load native dll libary
     else
       dlload (lib)
     end
-    import_symbols(output_error) unless @@glfw_import_done
+    import_symbols(output_error) unless @@stbi_image_import_done
   end
 
   @@lib_signature = [
     'void stbi_convert_iphone_png_to_rgb(int)',
-    'const char *stbi_failure_reason(void)',
+    'const char* stbi_failure_reason(void)',
     'void stbi_hdr_to_ldr_gamma(float)',
     'void stbi_hdr_to_ldr_scale(float)',
     'void stbi_image_free(void*)',
     'int stbi_info(char const* , int*, int*, int*)', 
-    # 'int stbi_info_from_callbacks(stbi_io_callbacks const*, void*, int*, int*, comp*)'
+    # 'stbi_info_from_callbacks'
     # 'stbi_info_from_file'
     # 'stbi_info_from_memory'
-    # 'stbi_is_16_bit'
+    'int stbi_is_16_bit(char const*)',
     # 'stbi_is_16_bit_from_callbacks'
     # 'stbi_is_16_bit_from_file'
     # 'stbi_is_16_bit_from_memory'
-    # 'stbi_is_hdr'
+    'int stbi_is_hdr(char const*)',
     # 'stbi_is_hdr_from_callbacks'
     # 'stbi_is_hdr_from_file'
     # 'stbi_is_hdr_from_memory'
-    # 'stbi_ldr_to_hdr_gamma'
-    # 'stbi_ldr_to_hdr_scale'
+    'void stbi_ldr_to_hdr_gamma(float)',
+    'void stbi_ldr_to_hdr_scale(float)',
     'stbi_uc* stbi_load(char const*, int*, int*, int*, int)', 
-    # 'stbi_load_16'
+    'stbi_us* stbi_load_16(char const*, int*, int*, int*, int)',
     # 'stbi_load_16_from_callbacks'
     # 'stbi_load_16_from_memory' 
     # 'stbi_load_from_callbacks' 
@@ -82,25 +82,32 @@ Load native dll libary
     # 'stbi_load_from_file_16'
     # 'stbi_load_from_memory' 
     # 'stbi_load_gif_from_memory'
-    # 'stbi_loadf' 
+    'float* stbi_loadf(char const*, int*, int*, int*, int)',
     # 'stbi_loadf_from_callbacks'
     # 'stbi_loadf_from_file' 
     # 'stbi_loadf_from_memory'
-    'void stbi_set_flip_vertically_on_load(int)'
-    # 'stbi_set_flip_vertically_on_load_thread'
-    # 'stbi_set_unpremultiply_on_load' 
-    # 'stbi_zlib_decode_buffer' 
-    # 'stbi_zlib_decode_malloc' 
-    # 'stbi_zlib_decode_malloc_guesssize'
-    # 'stbi_zlib_decode_malloc_guesssize_headerflag'
-    # 'stbi_zlib_decode_noheader_buffer' 
-    # 'stbi_zlib_decode_noheader_malloc'
+    'void stbi_set_flip_vertically_on_load(int)',
+    'void stbi_set_flip_vertically_on_load_thread(int)',
+    'void stbi_set_unpremultiply_on_load(int)',
+    'int stbi_zlib_decode_buffer(char*, int, const char*, int)', 
+    'char* stbi_zlib_decode_malloc(const char*, int, int*)', 
+    'char* stbi_zlib_decode_malloc_guesssize(const char*, int, int, int*)',
+    'char* stbi_zlib_decode_malloc_guesssize_headerflag(const char*, int, int, int*, int)',
+    'int stbi_zlib_decode_noheader_buffer(char*, int, const char*, int)', 
+    'char* stbi_zlib_decode_noheader_malloc(const char*, int, int*)'
   ]
 
   def self.import_symbols(output_error = false)
     typealias 'stbi_uc', 'unsigned char'
     typealias 'stbi_us', 'unsigned short' 
     
+    stbi_io_callbacks = struct[
+
+      'int  (*read) (void *user,char *data,int size)' 
+      'void     (*skip)  (void *user,int n)'                 
+      'int      (*eof)   (void *user)' 
+
+    ]
 
     # function
     @@lib_signature.each do |sig|
@@ -111,7 +118,7 @@ Load native dll libary
       end
     end
 
-    @@glfw_import_done = true
+    @@stbi_image_import_done = true
   end
 
 end
