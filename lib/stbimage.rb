@@ -39,6 +39,9 @@ module STBIMAGE
       elsif RUBY_PLATFORM == "x86-mingw32"
         lib, path = 'stbDLL_x86.dll', "#{__dir__}/../dlls"
       # elsif RUBY_PLATFORM == ""
+      else
+        
+      end
     end
 
     if path
@@ -100,15 +103,16 @@ module STBIMAGE
 
     # function
     @@lib_signature.each do |sig|
+
       begin
         extern sig
       rescue
         $stderr.puts("[Warning] Failed to import #{sig}.") if output_error
       end
 
-    @@stbi_image_import_done = true
     end
-  end
-end
 
+        @@stbi_image_import_done = true
+        
+  end
 end
