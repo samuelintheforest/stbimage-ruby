@@ -13,7 +13,7 @@ Binding of stb-image into the ruby programing language.
 
 # About the dll libs
 
-You can find it under [dlls] folder
+You can find it under [dlls](dlls) folder
 
 # A full Example:
 
