@@ -11,6 +11,10 @@ Bindings of stb-image into the ruby programing language.
 `STBIMAGE.load_lib()`
 4. Then you can use it :D\
 
+# About the dll libs
+
+You can find it under [dlls] folder
+
 # A full Example:
 
 ```ruby
