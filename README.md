@@ -37,5 +37,5 @@ puts nr_channels.unpack('l')[0]
 
 # Credit 
 
-Credit to Vaiorabbit who made the bindings of opengl into ruby! The wrapper is based on his glfw wrapper.  :D
+Credit to Vaiorabbit who made the bindings of opengl into ruby! This wrapper is based on his glfw wrapper.  :D
 
