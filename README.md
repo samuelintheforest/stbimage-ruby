@@ -3,7 +3,7 @@ Bindings of stb-image into the ruby programing language.
 
 # Tutorials
 
-1. To use this gem first install it with:\
+1. To use this gem first install it with:
 `gem install stbimage`
 2. Require it in your project with\
 `require 'stbimage'`
@@ -11,7 +11,8 @@ Bindings of stb-image into the ruby programing language.
 `STBIMAGE.load_lib()`
 4. Then you can use it :D\
 
-A full Example:\
+# A full Example:
+
 ```ruby
 require 'stb_image'
 
