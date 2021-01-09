@@ -9,7 +9,7 @@ Binding of stb-image into the ruby programing language.
 `require 'stbimage'`
 3. Load your dll dynamic libary what is in your projects root folder!!! (Download the dlls: visit my webpage.)
 `STBIMAGE.load_lib()`
-4. Then you can use it :D\
+4. Then you can use it :D
 
 # About the dll libs
 
