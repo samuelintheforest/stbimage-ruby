@@ -1,5 +1,14 @@
-# stbimage-ruby
-Binding of stb-image into the ruby programing language.
+# stbimage-ruby      
+
+
+
+Binding of stb-image.h into the ruby programing language.
+
+* ### Supports (so far): ###  
+  * **stbi_load**
+  * **stbi_set_flip_vertically_on_load**
+
+<br>
 
 # Tutorials
 
@@ -11,9 +20,13 @@ Binding of stb-image into the ruby programing language.
 `STBIMAGE.load_lib()`
 4. Then you can use it :D
 
-# About the dll libs
+<br>
+
+# DLL libs
 
 You can find it under [dlls](dlls) folder
+
+<br>
 
 # A full Example:
 
@@ -41,10 +54,14 @@ puts height.unpack('l')[0]
 puts nr_channels.unpack('l')[0]
 ```
 
+<br>
+
 # Credit
 
 Credit to Vaiorabbit who made the bindings of opengl into ruby! This wrapper is based on his glfw wrapper. :D \
 His repo: https://github.com/vaiorabbit/ruby-opengl
+
+<br>
 
 # Licence
 
