@@ -20,9 +20,12 @@ You can find it under [dlls](dlls) folder
 ```ruby
 require 'stb_image'
 
-STBIMAGE.load_lib() # Note that you need to name your dll file to stbDLL.dll
-# Or if you want to specify another name for it use (but don't forget that ruby search your dll file in your current directory!):
+# Note that you need to name your dll file to stbDLL.dll in this case
+STBIMAGE.load_lib() 
+# Or if you want to specify another name for it, use: 
 # STBIMAGE.load_lib(your_name.dll)
+
+# But don't forget that ruby searches your dll file in your current directory!
 
 width = ' ' * 4
 height = ' ' * 4
