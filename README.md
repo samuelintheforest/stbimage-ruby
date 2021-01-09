@@ -20,7 +20,9 @@ You can find it under [dlls](dlls) folder
 ```ruby
 require 'stb_image'
 
-STBIMAGE.load_lib
+STBIMAGE.load_lib() # Note that you need to name your dll file to stbDLL.dll
+# Or if you want to specify another name for it use (but don't forget that ruby search your dll file in your current directory!):
+# STBIMAGE.load_lib(your_name.dll)
 
 width = ' ' * 4
 height = ' ' * 4
@@ -35,7 +37,7 @@ puts height.unpack('l')[0]
 puts nr_channels.unpack('l')[0]
 ```
 
-# Credit 
+# Credit
 
 Credit to Vaiorabbit who made the bindings of opengl into ruby! This wrapper is based on his glfw wrapper. :D \
 His repo: https://github.com/vaiorabbit/ruby-opengl
