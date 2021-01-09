@@ -35,3 +35,7 @@ puts height.unpack('l')[0]
 puts nr_channels.unpack('l')[0]
 ```
 
+# Credit 
+
+Credit to Vaiorabbit who made the bindings of opengl into ruby! This wrapper is based on his glfw wrapper.  :D
+
