@@ -20,7 +20,7 @@ You can find it under [dlls](dlls) folder
 ```ruby
 require 'stb_image'
 
-# use this to load the dll (from gem 0.2.3 and above)!
+# use this to load the dll (from gem version 0.2.3 and above)!
 STBIMAGE.load_lib() 
 
 # Or if you want to specify another name for it, use: 
