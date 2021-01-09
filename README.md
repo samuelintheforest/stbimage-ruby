@@ -7,7 +7,7 @@ Binding of stb-image into the ruby programing language.
 `gem install stbimage`
 2. Require it in your project with\
 `require 'stbimage'`
-3. Load your dll dynamic libary what is in your projects root folder!!! (Download the dlls: visit my webpage.)
+3. Load your dll dynamic libary what is in your projects root folder!!! (Download the dlls: visit my webpage.)\
 `STBIMAGE.load_lib()`
 4. Then you can use it :D
 
