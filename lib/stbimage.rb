@@ -108,10 +108,8 @@ Load native dll libary
       rescue
         $stderr.puts("[Warning] Failed to import #{sig}.") if output_error
       end
-    end
 
     @@stbi_image_import_done = true
+    end
   end
-
 end
-
