@@ -31,7 +31,9 @@ module STBIMAGE
   
   @@glfw_import_done = false
 
-  # Load native library.
+=begin
+Load native dll libary 
+=end
   def self.load_lib(lib = nil, path = nil, output_error = false)
     if lib == nil && path == nil
         lib, path = 'stbDLL.dll', Dir.pwd
