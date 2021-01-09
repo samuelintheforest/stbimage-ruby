@@ -23,7 +23,7 @@ require 'stb_image'
 # Note that you need to name your dll file to stbDLL.dll in this case
 STBIMAGE.load_lib() 
 # Or if you want to specify another name for it, use: 
-# STBIMAGE.load_lib(your_name.dll)
+# STBIMAGE.load_lib('your_name.dll')
 
 # But don't forget that ruby searches your dll file in your current directory!
 
