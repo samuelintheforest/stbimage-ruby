@@ -1,4 +1,4 @@
-RUBY_PLATFORM = x86-mingw32
+
 
 if RUBY_PLATFORM =~ /64/
 
