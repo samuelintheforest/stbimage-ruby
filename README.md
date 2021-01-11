@@ -50,7 +50,7 @@ Ruby binding of stb-image.h
 
 If you want to compile the shared libary yourself, Use the instruction below (otherwise if the gem works for you than this step is unnecessary):
 
-1. Download sources: [stb_source](stb_source) (stb_image.h, stb_image.c)
+1. Download sources: [stb-source](stb-source) (stb_image.h, stb_image.c)
 
 2. Navigate to the files in terminal with `cd` 
 
