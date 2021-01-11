@@ -59,7 +59,7 @@ If you want to compile the shared libary yourself, Use the instruction below (ot
 
 4. If nothing shows up than finally you got your own `libstb.so` file what is fully compatible with your system.
 
-5. load it to your program with `STBIMAGE.load_lib('libstb.so', "absolute_path_to_your_shared_libary")`
+5. See [Usage](#Usage) to properly load it to your program.
 
 <br>
 
