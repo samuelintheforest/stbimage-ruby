@@ -40,10 +40,10 @@ module STBIMAGE
         # puts "You have a 64-bit Architecture ruby"
         if RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/
           # puts "With Windows"
-          lib, path = 'stbDLL_x64.dll', "#{__dir__}/../dlls"
+          lib, path = 'stbDLL_x64.dll', "#{__dir__}/dlls"
         elsif RUBY_PLATFORM =~ /linux/ || RUBY_PLATFORM =~ /cygwin/
           # puts "With Linux"
-          lib, path = 'libstb_x64.so', "#{__dir__}/../dlls"
+          lib, path = 'libstb_x64.so', "#{__dir__}/dlls"
         elsif RUBY_PLATFORM =~ /darwin/
           # puts "With macOS"
         else
@@ -53,7 +53,7 @@ module STBIMAGE
       elsif RUBY_PLATFORM =~ /arm/
       
         # puts "You have a arm architecture"
-        lib, path = 'libstb_arm.so', "#{__dir__}/../dlls"
+        lib, path = 'libstb_arm.so', "#{__dir__}/dlls"
       
       elsif RUBY_PLATFORM =~ /java/
       
@@ -64,10 +64,10 @@ module STBIMAGE
         # puts "You have a 32-bit Architecture ruby"
         if RUBY_PLATFORM =~ /mswin/ || RUBY_PLATFORM =~ /mingw/
           # puts "With Windows"
-          lib, path = 'stbDLL_x86.dll', "#{__dir__}/../dlls"
+          lib, path = 'stbDLL_x86.dll', "#{__dir__}/dlls"
         elsif RUBY_PLATFORM =~ /linux/ || RUBY_PLATFORM =~ /cygwin/
           # puts "With Linux"
-          lib, path = 'libstb_x86.so', "#{__dir__}/../dlls"
+          lib, path = 'libstb_x86.so', "#{__dir__}/dlls"
         elsif RUBY_PLATFORM =~ /darwin/
           # puts "With macOS"
         else
