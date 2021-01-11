@@ -81,7 +81,7 @@ module STBIMAGE
     if path
       dlload (path + '/' + lib)
     else
-      dlload (lib)
+      dlload ("#{__dir__}/#{lib}")
     end
     import_symbols(output_error) unless @@stbi_image_import_done
   end
