@@ -65,7 +65,7 @@ If you want to compile the shared libary yourself, Use the instruction below (ot
 
 # Precompiled shared libs (.dll, .so)
 
-You can find it under [dlls](dlls) folder, but they are also included in the gem
+You can find it under [dlls](lib/dlls) folder, but they are also included in the gem
 
 <br>
 
