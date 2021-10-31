@@ -113,7 +113,7 @@ module STBIMAGE
     # 'stbi_load_from_callbacks' 
     # 'stbi_load_from_file'  
     # 'stbi_load_from_file_16'
-    # 'stbi_load_from_memory' 
+    'stbi_load_from_memory(stbi_uc const*, int, int*, int*, int*, int)' 
     # 'stbi_load_gif_from_memory'
     'float* stbi_loadf(char const*, int*, int*, int*, int)',
     # 'stbi_loadf_from_callbacks'

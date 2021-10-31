@@ -1,35 +1,18 @@
-# STBIMAGE     
-
-
+# stb-image ruby bindings     
 
 Ruby binding of stb-image.h
 
-**Works well on windows!!!**
-**Added support for Linux (32, 64, arm)**
-
-* ### Supports (so far): ###  
+* ### Supports: ###  
   <br>
   
   * **stbi_load** (Default image loader)
+  * **stbi_load_from_memroy**
   * **stbi_load_16**
   * **stbi_loadf** (For `.hdr` images)
   * **stbi_info**
   * **stbi_image_free**
-  * **stbi_failure_reason**
   * **stbi_set_flip_vertically_on_load**
-  * **stbi_set_flip_vertically_on_load_thread**
-  * **stbi_set_unpremultiply_on_load**
-  * **stbi_convert_iphone_png_to_rgb**
-  * **stbi_hdr_to_ldr_gamma**
-  * **stbi_hdr_to_ldr_scale**
-  * **stbi_is_16_bit**
-  * **stbi_is_hdr**
-  * **stbi_zlib_decode_buffer**
-  * **stbi_zlib_decode_malloc**
-  * **stbi_zlib_decode_malloc_guesssize**
-  * **stbi_zlib_decode_malloc_guesssize_headerflag**
-  * **stbi_zlib_decode_noheader_buffer**
-  * **stbi_zlib_decode_noheader_malloc**
+  * and more...
 
 
 <br>
