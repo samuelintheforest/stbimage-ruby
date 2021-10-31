@@ -6,7 +6,7 @@ Ruby binding of stb-image.h
   <br>
   
   * **stbi_load** (Default image loader)
-  * **stbi_load_from_memroy**
+  * **stbi_load_from_memory**
   * **stbi_load_16**
   * **stbi_loadf** (For `.hdr` images)
   * **stbi_info**
@@ -80,12 +80,91 @@ nr_channels = ' ' * 4
 
 data = STBIMAGE.stbi_load("blue-poly.jpg", width, height, nr_channels, 0)
 
-puts data # You can use this data in OpenGL for instance.
+data # the retrieved image data
 
-puts width.unpack('l')[0]
-puts height.unpack('l')[0]
-puts nr_channels.unpack('l')[0]
+width = width.unpack1('L')
+height height.unpack1('L')
+nr_channels = nr_channels.unpack1('L')
+
+
+
+# The retrieved data can be used in OpenGL for instance.
+# glTexImage2D(GL_TEXTURE_2D, 0, GL_RGB, width, height, 0, GL_RGB, GL_UNSIGNED_BYTE, data)
+
+stbi_image_free(data)
 ```
+
+<br>
+
+# Function list and examples:
+
+```ruby
+include STBIMAGE
+
+# 1. stbi_load(path_to_file, width_ptr, height_ptr, num_channels_ptr, desired_channels)
+
+width = ' ' * 4         # width_ptr
+height = ' ' * 4        # height_ptr
+nr_channels = ' ' * 4   # num_channels_ptr
+
+data = stbi_load("blue-poly.jpg", width, height, nr_channels, 0)
+
+# retrieve the values from the pointers
+width = width.unpack1('L')             
+height = height.unpack1('L')
+nr_channels = nr_channels.unpack1('L')
+```
+
+```ruby
+include STBIMAGE
+
+# 2. stbi_load_from_memory(ptr_to_image_data_array, image_array_size_in_bytes, width_ptr, height_ptr, num_channels_ptr, desired_channels)
+
+white_texture_raw = [
+  0x89, 0x50, 0x4E, 0x47, 0x0D, 0x0A, 0x1A, 0x0A, 0x00, 0x00, 0x00, 0x0D, 0x49, 0x48, 0x44, 0x52, 
+0x00, 0x00, 0x00, 0x20, 0x00, 0x00, 0x00, 0x20, 0x08, 0x06, 0x00, 0x00, 0x00, 0x73, 0x7A, 0x7A, 
+0xF4, 0x00, 0x00, 0x00, 0x01, 0x73, 0x52, 0x47, 0x42, 0x00, 0xAE, 0xCE, 0x1C, 0xE9, 0x00, 0x00, 
+0x00, 0x2F, 0x49, 0x44, 0x41, 0x54, 0x58, 0x47, 0xED, 0xD0, 0x41, 0x11, 0x00, 0x00, 0x0C, 0xC2, 
+0xB0, 0xE1, 0x5F, 0x34, 0x93, 0xC1, 0x27, 0x55, 0xD0, 0x4B, 0xDA, 0xF6, 0x86, 0xC5, 0x00, 0x01, 
+0x02, 0x04, 0x08, 0x10, 0x20, 0x40, 0x80, 0x00, 0x01, 0x02, 0x04, 0x08, 0x10, 0x20, 0xB0, 0x16, 
+0x78, 0x31, 0x4C, 0x7F, 0xA1, 0xF9, 0xB6, 0x23, 0xF9, 0x00, 0x00, 0x00, 0x00, 0x49, 0x45, 0x4E, 
+0x44, 0xAE, 0x42, 0x60, 0x82
+]
+
+texture_size = white_texture_raw.size
+texture_ptr = Fiddle::Pointer.to_ptr(white_texture_raw.pack('C*'))
+
+width = ' ' * 4         # width_ptr
+height = ' ' * 4        # height_ptr
+nr_channels = ' ' * 4   # num_channels_ptr
+
+data = stbi_load_from_file(texture_ptr, texture_size, width, height, nr_channels, 0)
+
+# retrieve the values from the pointers
+width = width.unpack1('L')             
+height = height.unpack1('L')
+nr_channels = nr_channels.unpack1('L')
+```
+
+```ruby
+include STBIMAGE
+
+# 3. stbi_set_flip_vertically_on_load(value)
+# before getting reading the image:
+
+stbi_set_flip_vertically_on_load(1) # flips the image vertically on load
+stbi_set_flip_vertically_on_load(0) # disable flipping
+```
+
+```ruby
+include STBIMAGE
+
+# 4. stbi_image_free(img_data)
+# freeing up the image in memory after we loaded the image. It's essential in order to avoid big memory usage.  
+
+stbi_image_free(data)
+```
+
 
 <br>
 
