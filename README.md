@@ -138,7 +138,7 @@ width = ' ' * 4         # width_ptr
 height = ' ' * 4        # height_ptr
 nr_channels = ' ' * 4   # num_channels_ptr
 
-data = stbi_load_from_file(texture_ptr, texture_size, width, height, nr_channels, 0)
+data = stbi_load_from_memory(texture_ptr, texture_size, width, height, nr_channels, 0)
 
 # retrieve the values from the pointers
 width = width.unpack1('L')             
